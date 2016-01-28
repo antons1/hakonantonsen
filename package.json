@@ -6,10 +6,11 @@
   "scripts": {
     "test": "echo test",
     "start": "node server",
-    "postinstall": "webpack -p --config webpack.production.config.js && npm run compileCss",
+    "postinstall": "webpack -p --config webpack.production.config.js && npm run lesscc",
     "deploy": "git push azure master",
-    "develop": "parallelshell \"nodemon server.js\" \"npm run compileCss\" \"webpack --config webpack.config.js --watch --progress --colors\"",
-    "compileCss": "lessc app/style/all.less public/build/main.css"
+    "develop": "parallelshell \"nodemon server.js\" \"npm run lesscc\" \"webpack --config webpack.config.js --watch --progress --colors\"",
+    "lesscc": "lessc app/style/all.less public/build/main.css",
+    "lesscc:watch": "nodemon --exec \"npm run lesscc\""
   },
   "repository": {
     "type": "git",
