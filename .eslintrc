@@ -1,0 +1,28 @@
+{
+  "parser": "babel-eslint",
+  "extends": "eslint:recommended",
+  "root": true,
+  "plugins": ["react"],
+  "env": {
+        "browser": true,
+        "node": true,
+    "es6": true
+  },
+  "ecmaFeatures": {
+    "jsx": true
+  },
+  "rules": {
+    "strict": 0,
+    "eqeqeq": 1,
+    "no-console": 1,
+    "no-use-before-define": [2, "nofunc"],
+    "no-trailing-spaces": 1,
+    "space-before-function-paren": [1, { "anonymous": "always", "named": "never" }],
+    "no-unused-vars": [2, {"vars": "all", "args": "after-used", "argsIgnorePattern": "(^_|^next$)"}],
+    "space-after-keywords": 2,
+    "space-before-blocks": 2
+  },
+  "globals": {
+    "process": true
+  }
+}
