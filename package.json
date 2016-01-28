@@ -1,0 +1,48 @@
+{
+  "name": "hakonantonsen",
+  "version": "1.0.0",
+  "description": "Personal website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo test",
+    "start": "node server",
+    "postinstall": "webpack -p --config webpack.production.config.js && npm run compileCss",
+    "deploy": "git push azure master",
+    "develop": "parallelshell \"nodemon server.js\" \"npm run compileCss\" \"webpack --config webpack.config.js --watch --progress --colors\"",
+    "compileCss": "lessc app/style/all.less public/build/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antons1/hakonantonsen.git"
+  },
+  "keywords": [
+    "react",
+    "node"
+  ],
+  "author": "Håkon Antonsen <haakon@antons1.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/antons1/hakonantonsen/issues"
+  },
+  "homepage": "https://github.com/antons1/hakonantonsen#readme",
+  "dependencies": {
+    "babel": "^6.3.26",
+    "babel-core": "^6.3.13",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "express": "^4.13.4",
+    "history": "^1.17.0",
+    "http-proxy": "^1.12.1",
+    "lodash": "^4.0.1",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-router": "^1.0.3",
+    "webpack": "^1.12.12"
+  },
+  "devDependencies": {
+    "nodemon": "^1.8.1",
+    "parallelshell": "^2.0.0",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
