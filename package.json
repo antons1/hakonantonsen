@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Personal website",
   "main": "index.js",
+  "engines": {
+    "node": "4.x",
+    "npm": "3.x"
+  },
   "scripts": {
     "test": "echo test",
     "start": "node server",
@@ -35,6 +39,7 @@
     "express": "^4.13.4",
     "history": "^1.17.0",
     "http-proxy": "^1.12.1",
+    "less": "^2.5.3",
     "lodash": "^4.0.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
