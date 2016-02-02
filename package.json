@@ -10,11 +10,13 @@
   "scripts": {
     "test": "echo test",
     "start": "node server",
-    "postinstall": "webpack -p --config webpack.production.config.js && npm run lesscc",
+    "postinstall": "webpack -- -p --config webpack.production.config.js && npm run less",
     "deploy": "git push azure master",
-    "develop": "parallelshell \"nodemon server.js\" \"npm run lesscc\" \"webpack --config webpack.config.js --watch --progress --colors\"",
-    "lesscc": "lessc app/style/all.less public/build/main.css",
-    "lesscc:watch": "nodemon --exec \"npm run lesscc\""
+    "develop": "parallelshell \"npm run webpack:watch\" \"npm run less:watch\" \"nodemon server.js -e js,jsx\"",
+    "less": "lessc app/style/all.less public/build/main.css",
+    "less:watch": "nodemon --exec \"npm run less\" -e less",
+    "webpack": "webpack --progress --colors --config webpack.config.js",
+    "webpack:watch": "npm run webpack -- --watch"
   },
   "repository": {
     "type": "git",
@@ -49,6 +51,7 @@
   "devDependencies": {
     "nodemon": "^1.8.1",
     "parallelshell": "^2.0.0",
+    "undefined": "^0.1.0",
     "webpack-dev-server": "^1.14.1"
   }
 }
