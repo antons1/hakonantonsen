@@ -4,19 +4,19 @@
   "description": "Personal website",
   "main": "index.js",
   "engines": {
-    "node": "4.x",
+    "node": "6.x",
     "npm": "3.x"
   },
   "scripts": {
     "test": "echo test",
-    "start": "node server",
+    "start": "npm run develop",
     "postinstall": "webpack -- -p --config webpack.production.config.js && npm run less",
-    "deploy": "git push azure master",
-    "develop": "parallelshell \"npm run webpack:watch\" \"npm run less:watch\" \"nodemon server.js -e js,jsx\"",
+    "develop": "parallelshell \"npm run webpack:watch\" \"npm run less:watch\" \"npm run webpack-dev-server\"",
     "less": "lessc app/style/all.less public/build/main.css",
     "less:watch": "nodemon --exec \"npm run less\" -e less",
     "webpack": "webpack --progress --colors --config webpack.config.js",
-    "webpack:watch": "npm run webpack -- --watch"
+    "webpack:watch": "npm run webpack -- --watch",
+    "webpack-dev-server": "webpack-dev-server --content-base public/"
   },
   "repository": {
     "type": "git",
@@ -41,12 +41,11 @@
     "express": "^4.13.4",
     "history": "^1.17.0",
     "http-proxy": "^1.12.1",
-    "less": "^2.5.3",
-    "lodash": "^4.0.1",
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3",
-    "react-router": "^1.0.3",
-    "webpack": "^1.12.12"
+    "lodash": "^4.17.2",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-router": "^3.0.0",
+    "webpack": "^1.14.0"
   },
   "devDependencies": {
     "nodemon": "^1.8.1",

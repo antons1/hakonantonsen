@@ -4,6 +4,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import {Router, Route, Link, IndexRoute} from "react-router";
-import routes from "./components/routes";
+import Routes from "./components/Routes";
 
-ReactDOM.render(<Router routes={routes} />, document.getElementById('app'));
+ReactDOM.render(<Routes />, document.getElementById('app'));
