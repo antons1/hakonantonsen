@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "hakonantonsen-29315"
+    "test": "hakonantonsen-test",
+    "production": "hakonantonsen-29315",
+    "default": "hakonantonsen-test"
   }
 }
