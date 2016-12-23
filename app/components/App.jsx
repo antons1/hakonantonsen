@@ -8,11 +8,11 @@ class App extends React.Component {
         super();
         this.state = {};
     }
-    
+
     render() {
         return (
-            <div className="container-fluid">
-                <Header />
+            <div className="App">
+                {/*<Header />*/}
                 {this.props.children}
             </div>
         );
