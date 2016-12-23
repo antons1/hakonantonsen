@@ -2,34 +2,13 @@
 
 import React from "react";
 
-class WhoAmI extends React.Component {
-    render() {
-        return(
-            <div className="col-xs-12">
-        
-            </div>
-        )
-    }
-};
-
-class FrontPage extends React.Component {
-    
-    render() {
-        return(
-            <div className="row">
-                <div className="col-xs-12">
-                    <div className="container">
-                        <div className="row">
-                            <h1 className="col-xs-12 col-md-offset-6 col-md-6">
-                                TUR OVER HARDANGER II
-                            </h1>
-                        </div>
-                    </div>
-                </div>
-                <WhoAmI />
-            </div>
-        );
-    }
-};
-
-export default FrontPage;
+export default (props) =>
+    <div className="wip-box">
+        <h3>Velkommen til</h3>
+        <h1>hakonantonsen.no</h1>
+        <h3>Det digitale hjemmet til</h3>
+        <h1>H&aring;kon Antonsen</h1>
+        <p>Som du kan se har jeg ikke fått gjort så veldig mye her enda, så kom tilbake senere om du er interessert i å se hva som skjer.</p>
+        <p>Om du ønsker kontakt med meg kan du nå meg på haakon (at) antons1 (dot) net</p>
+        <p>English: This page is really empty as you can see, but stuff will come. If you want to contact me, you can reach me on haakon (at) antons1 (dot) net</p>
+    </div>;
