@@ -2,6 +2,134 @@ html {
     background-color: darkslategray;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", "Times New Roman", serif;
+}
+
+h1 {
+    margin: 0;
+    font-size: @h1Mobile;
+    line-height: @h1Mobile;
+}
+
+h3 {
+    margin: 0;
+    font-weight: lighter;
+    font-size: @h3Mobile;
+    line-height: @h3Mobile;
+    color: #777;
+}
+
+@media only screen and (min-width: @mobileBreakpoint) {
+    h3 {
+        font-size: @h3Normal;
+        line-height: @h3Normal;
+    }
+
+    h1 {
+        font-size: @h1Normal;
+        line-height: @h1Normal;
+    }
+}
+
+.container {
+    width: 90%;
+    max-width: 60rem;
+    height: auto;
+    background-color: #FFF;
+    padding: 0;
+    margin: auto;
+    font-family: "Lato", "Arial", "Helvetica", sans-serif;
+
+    &.padded {
+        width: 80%;
+        padding: .5rem 2rem;
+    }
+}
+
+.main-header {
+    .titles {
+        display: inline-block;
+
+        @media only screen and (min-width: @mobileBreakpoint) {
+            margin-right: 2rem;
+        }
+    }
+
+    .hamburger {
+        display: inline-block;
+        background: none;
+        padding: 0;
+        margin: 0;
+        width: 2rem;
+        height: 2rem;
+        float: right;
+        margin-top: .3rem;
+        background: linear-gradient(
+            to bottom,
+            black, black 15%,
+            white 15%, white 40%,
+            black 45%, black 60%,
+            white 60%, white 85%,
+            black 85%, black 100%
+        );
+
+        @media only screen and (min-width: @mobileBreakpoint) {
+            display: none;
+        }
+    }
+
+    .main-nav {
+        display: block;
+
+        @media only screen and (min-width: @mobileBreakpoint) {
+            display: inline-block;
+        }
+
+        ul {
+            display: none;
+            padding: 0;
+
+            @media only screen and (min-width: @mobileBreakpoint) {
+                display: inline-block;
+                margin: 0;
+            }
+
+            &.visible {
+                display: block;
+            }
+
+            li {
+                list-style: none;
+                margin: 0;
+                padding: .2rem 0;
+                font-size: @h3Mobile;
+
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                    font-family: "Playfair Display", "Times New Roman", serif;
+
+                    &:hover {
+                        color: #888;
+                    }
+                }
+
+                @media only screen and (min-width: @mobileBreakpoint) {
+                    display: inline-block;
+                    margin-left: 1rem;
+                    font-size: @h3Normal;
+
+                    &:first-of-type {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
 .wip-box {
     width: 80%;
     height: auto;
