@@ -1,10 +1,12 @@
+// Shared
+
 html {
     background-color: darkslategray;
     font-size: 1em;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Playfair Display", "Times New Roman", serif;
+    font-family: @headerFonts;
     margin: 0;
 }
 
@@ -18,16 +20,21 @@ h4 {
     width: 90%;
     max-width: 60em;
     height: auto;
-    background-color: #FFF;
     padding: 0;
     margin: auto;
-    font-family: "Lato", "Arial", "Helvetica", sans-serif;
+    font-family: @regularFonts;
 
     &.padded {
         width: 80%;
         padding: .5em 2em;
     }
+
+    &.background {
+        background-color: #FFF;
+    }
 }
+
+// Header
 
 .main-header {
     @media only screen and (min-width: @mobileBreakpoint) {
@@ -116,6 +123,25 @@ h4 {
             }
         }
 
+    }
+}
+
+// Footer
+
+.main-footer {
+    text-align: center;
+    margin-top: .5em;
+    color: #FFF;
+
+    .footer-element {
+        margin: .2em 1em 0 0;
+        display: inline-block;
+        font-family: @regularFonts;
+        font-size: .8em;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
     }
 }
 
