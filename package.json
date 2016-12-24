@@ -16,7 +16,10 @@
     "less:watch": "nodemon --exec \"npm run less\" -e less",
     "webpack": "webpack --progress --colors --config webpack.config.js",
     "webpack:watch": "npm run webpack -- --watch",
-    "webpack-dev-server": "webpack-dev-server --content-base public/"
+    "webpack-dev-server": "webpack-dev-server --content-base public/",
+    "build": "npm run less & npm run webpack",
+    "deploy:test": "npm run build & firebase use test & firebase deploy & firebase use default",
+    "deploy:production": "npm run build & firebase use production & firebase deploy & firebase use default"
   },
   "repository": {
     "type": "git",
