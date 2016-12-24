@@ -19,7 +19,7 @@ class Header extends React.Component {
 
     render() {
         return(
-            <header className="padded container main-header">
+            <header className="padded background container main-header">
                 <div className="titles">
                     <h1>Håkon Antonsen</h1>
                     <h4>M. Sc student, full-stack developer</h4>
