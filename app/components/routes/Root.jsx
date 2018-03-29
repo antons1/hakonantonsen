@@ -1,8 +1,8 @@
 "use strict";
 
 import React from 'react';
-import PageHeader from './organisms/PageHeader/PageHeader';
-import PageFooter from './organisms/PageFooter/PageFooter';
+import PageHeader from '../organisms/PageHeader/PageHeader';
+import PageFooter from '../organisms/PageFooter/PageFooter';
 import './Root.less';
 
 class App extends React.Component {

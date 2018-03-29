@@ -1,7 +1,7 @@
 "use strict";
 
 import React from "react";
-import PageContentBox from './organisms/PageContentBox/PageContentBox';
+import PageContentBox from '../organisms/PageContentBox/PageContentBox';
 
 export default (props) =>
     <PageContentBox>
