@@ -1,2 +1,5 @@
 node_modules
 public/build/
+.cache
+dist
+package-lock.json
