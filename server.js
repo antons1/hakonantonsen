@@ -4,7 +4,6 @@ const express = require("express");
 const path = require("path");
 const httpProxy = require("http-proxy");
 
-
 const app = express();
 
 const isProduction = process.env.NODE_ENV === "production";

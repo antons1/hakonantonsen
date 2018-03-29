@@ -1,5 +1,8 @@
+# Folders
 node_modules
 public/build/
 .cache
 dist
+
+# Files
 package-lock.json

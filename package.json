@@ -9,12 +9,13 @@
   },
   "scripts": {
     "test": "echo test",
-    "start": "npm run develop",
-    "develop": "echo develop",
+    "server": "node ./server.js",
+    "frontend": "parcel watch ./app/main.js -d public/build",
     "less": "lessc app/style/all.less public/build/main.css",
-    "build": "echo build",
-    "deploy:test": "npm run build & firebase use test & firebase deploy & firebase use default",
-    "deploy:production": "npm run build & firebase use production & firebase deploy & firebase use default"
+    "build": "parcel build ./app/main.js -d public/build",
+    "clean": "rm -rf ./public/build",
+    "deploy:test": "npm run clean && npm run build && firebase use test && firebase deploy && firebase use default",
+    "deploy:production": "npm run clean && npm run build && firebase use production && firebase deploy && firebase use default"
   },
   "repository": {
     "type": "git",
