@@ -1,7 +1,7 @@
 "use strict";
 
 import React from 'react';
-import Header from "./shared/Header";
+import PageHeader from './organisms/PageHeader/PageHeader';
 import Footer from "./shared/Footer";
 
 class App extends React.Component {
@@ -13,7 +13,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <Header />
+                <PageHeader />
                 {this.props.children}
                 <Footer />
             </div>
