@@ -3,7 +3,7 @@
 import React from 'react';
 import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
 
-import App from './App';
+import App from './Root';
 import FrontPage from './FrontPage';
 import CV from './CV';
 
