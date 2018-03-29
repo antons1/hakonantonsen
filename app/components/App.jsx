@@ -2,7 +2,7 @@
 
 import React from 'react';
 import PageHeader from './organisms/PageHeader/PageHeader';
-import Footer from "./shared/Footer";
+import PageFooter from './organisms/PageFooter/PageFooter';
 
 class App extends React.Component {
     constructor() {
@@ -15,7 +15,7 @@ class App extends React.Component {
             <div className="App">
                 <PageHeader />
                 {this.props.children}
-                <Footer />
+                <PageFooter />
             </div>
         );
     }
