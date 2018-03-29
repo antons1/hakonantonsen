@@ -2,11 +2,11 @@ import React from 'react';
 import './PageFooter.less'
 
 const PageFooter = (props) =>
-    <footer className="container main-footer">
-        <pre className="footer-element">
+    <footer className="main-footer">
+        <pre className="main-footer__element">
             H&aring;kon Antonsen
         </pre>
-        <pre className="footer-element">
+        <pre className="main-footer__element">
             haakon(at)antons1(dot)net
         </pre>
     </footer>;
