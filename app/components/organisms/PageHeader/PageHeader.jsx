@@ -1,10 +1,10 @@
 "use strict";
 
 import React from "react";
-import { Link } from "react-router";
 import './PageHeader.less';
 
-import PageContentBox from '../PageContentBox/PageContentBox'
+import PageContentBox from '../PageContentBox/PageContentBox';
+import NavigationBar from '../../molecules/NavigationBar/NavigationBar';
 
 class PageHeader extends React.Component {
     constructor() {
@@ -31,13 +31,13 @@ class PageHeader extends React.Component {
                 <span className="hamburger-wrapper">
                     <a className="hamburger-wrapper__hamburger" href="#" onClick={this.toggleMenu}></a>
                 </span>
-                <nav className="main-nav">
-                    <ul className={"main-nav__list" + (this.state.visibleMenu ? " main-nav__list--visible" : "")}>
-                        <li className="nav-list-item"><h1><Link to="/cv" className="nav-list-item__link">CV</Link></h1></li>
-                        <li className="nav-list-item"><h1><Link to="/about" className="nav-list-item__link">About</Link></h1></li>
-                        <li className="nav-list-item"><h1><Link to="/blog" className="nav-list-item__link">Blog</Link></h1></li>
-                    </ul>
-                </nav>
+                <NavigationBar
+                    links={[
+                        { to: "/cv", text: "CV" },
+                        { to: "/about", text: "About" },
+                        { to: "/blog", text: "Blog" }
+                    ]}
+                    visible={this.state.visibleMenu} />
                 </PageContentBox>
             </header>
         );
