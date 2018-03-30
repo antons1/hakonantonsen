@@ -14,6 +14,7 @@
     "less": "lessc app/style/all.less public/build/main.css",
     "build": "parcel build ./app/main.js -d public/build",
     "clean": "rm -rf ./public/build",
+    "component": "./scripts/mkcomponent.sh",
     "deploy:test": "npm run clean && npm run build && firebase use test && firebase deploy && firebase use default",
     "deploy:production": "npm run clean && npm run build && firebase use production && firebase deploy && firebase use default"
   },
