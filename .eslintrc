@@ -1,16 +1,4 @@
 {
-  "parser": "babel-eslint",
-  "extends": "eslint:recommended",
-  "root": true,
-  "plugins": ["react"],
-  "env": {
-        "browser": true,
-        "node": true,
-    "es6": true
-  },
-  "ecmaFeatures": {
-    "jsx": true
-  },
   "rules": {
     "strict": 0,
     "eqeqeq": 1,
@@ -22,7 +10,23 @@
     "space-after-keywords": 2,
     "space-before-blocks": 2
   },
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/essential"
+  ],
   "globals": {
-    "process": true
-  }
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "plugins": [
+    "vue"
+  ]
 }
