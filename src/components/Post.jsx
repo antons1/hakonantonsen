@@ -1,5 +1,7 @@
 import React from 'react';
 
+const textStyles = "text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"; // Can't get CSSPurge not to purge these..
+
 export default function Post({
     title,
     imageUrl,
@@ -22,7 +24,7 @@ export default function Post({
                         <video autoPlay={autoPlay} muted loop>
                             <source src={videoUrl} type="video/mp4" />
                         </video>}
-                    <h2 className={`absolute ${bottomTitle? "bottom" : "top"}-8 left-8 right-8 text-white font-serif text-4xl sm:text-${maxHeadingHeight || 5}xl md:text-${maxHeadingHeight || 6}xl lg:text-${maxHeadingHeight || 7}xl xl:text-${maxHeadingHeight || 8}xl text-outline`}>
+                    <h2 className={`absolute ${bottomTitle? "bottom-8" : "top-8"} left-8 right-8 text-white font-serif text-4xl sm:text-${maxHeadingHeight || 5}xl md:text-${maxHeadingHeight || 6}xl lg:text-${maxHeadingHeight || 7}xl xl:text-${maxHeadingHeight || 8}xl text-outline`}>
                         {title}
                     </h2>
                 </div>
