@@ -15,9 +15,9 @@ export default function Header() {
                     <span className="opacity-50">.no</span>
                 </div>
                 <nav className="flex-1">
-                    <ul className="flex justify-start text-xl md:text-2xl">
-                        <Link to="/blog"><li className="ml-4">Blog</li></Link>
-                        <Link to="/about"><li className="ml-4">About</li></Link>
+                    <ul className="flex justify-end text-xl md:text-2xl">
+                        <Link to="/blog"><li className="mr-4">Blog</li></Link>
+                        <Link to="/about"><li className="mr-4">About</li></Link>
                     </ul>
                 </nav>
             </div>

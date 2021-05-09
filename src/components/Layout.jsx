@@ -6,7 +6,7 @@ import wrapperClass from './wrapperClass'
 
 export default function Layout({ children }) {
     return (
-        <div className="flex flex-col h-screen font-sans">
+        <div className="flex flex-col min-h-screen font-sans bg-gray-100">
             <Header />
             <main className={`${wrapperClass} flex-grow`}>
                 {children}

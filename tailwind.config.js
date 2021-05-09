@@ -6,7 +6,8 @@ module.exports = {
       serif: ["Newsreader", "serif"],
       sans: ["Open Sans", "sans-serif"]
     },
-    extend: {},
+    extend: {
+    },
   },
   variants: {
     extend: {},
