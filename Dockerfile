@@ -10,5 +10,6 @@ COPY ./*.js ./*.json /app/
 RUN ["npm", "run", "build"]
 
 FROM nginx:1.20-alpine
-COPY --from=build /app/public /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/public /app
 EXPOSE 80 443
