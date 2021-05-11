@@ -1,9 +1,21 @@
 import React from 'react';
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 
 export default function about() {
     return (
         <Layout>
+            <SEO
+                title="About Håkon Antonsen"
+                description={` I am Håkon Antonsen, a software developer living in Oslo, Norway. If you want to reach me professionaly,
+                feel free to contact me on LinkedIn. I have a master's degree in computer science from the University of Oslo
+                and have worked as a full-stack developer for 6 years, with a strong frontend focus the last few 
+                years.`}
+                type="profile"
+                image="./ProfilGit.jpg">
+                <meta name="profile:first_name" content="Håkon" />
+                <meta name="profile:last_name" content="Antonsen" />
+            </SEO>
             <div className="my-8 bg-white rounded-md shadow-lg box-content p-4">
                 <div className="max-w-3xl m-auto mt-0">
                     <h1 className="text-xl">Hello! 👋</h1>

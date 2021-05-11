@@ -3,11 +3,19 @@ import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
 import Post from "../components/Post";
 import remarkNodeToPost from '../functions/remarkNodeToPost';
+import SEO from "../components/SEO";
 
 export default function Home({ data }) {
   const { allMarkdownRemark: { edges } } = data;
   return (
     <Layout>
+      <SEO title="Welcome!"
+           description={`Håkon Antonsen's personal website.
+           This site is a place where I write about whatever I think about, so the content will vary. I try to show 
+          some photos and other creative work I do, as well as software and technology, and, as I said, whatever I 
+          think about.`}
+           type="website"
+           image=""/>
       <div className="flex justify-between my-6 flex-wrap md:flex-nowrap">
         <div className={`w-full ${edges[1] ? "md:w-2/3 md:pr-8" : ""} mb-8 md:mb-0 self-stretch`}>
           <Link to={`/blog/${edges[0].node.frontmatter.slug}`}><Post {...remarkNodeToPost(edges[0])} autoPlay={true} /></Link>
