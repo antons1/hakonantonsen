@@ -1,0 +1,69 @@
+---
+import Base from "../layouts/Base.astro";
+import PostList from "../components/PostList.astro";
+import { getPosts } from "../lib/substack";
+
+const posts = (await getPosts()).slice(0, 3);
+
+// Placeholder tiles until the photo portfolio is wired up to Immich.
+const tiles = [1, 2, 3];
+---
+
+<Base>
+  <p class="intro">
+    Hi — I'm Håkon. This is where I collect the things I make and want to
+    share: writing, photography, and eventually drawings and paintings.
+    <!-- PLACEHOLDER INTRO — Håkon: replace with your own words. -->
+  </p>
+
+  <section>
+    <h2><a href="/photos/">Photography</a></h2>
+    <div class="tiles">
+      {tiles.map(() => (
+        <div class="tile" aria-hidden="true"></div>
+      ))}
+    </div>
+    <p class="hint">Portfolio coming soon — highlights will appear here.</p>
+  </section>
+
+  <section>
+    <h2><a href="/writing/">Recent writing</a></h2>
+    <PostList posts={posts} />
+    <p class="hint"><a href="/writing/">All writing →</a></p>
+  </section>
+</Base>
+
+<style>
+  .intro {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+
+  h2 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  h2 a:hover {
+    color: var(--accent);
+  }
+
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .tile {
+    aspect-ratio: 3 / 2;
+    background: var(--tile);
+    border-radius: 4px;
+  }
+
+  .hint {
+    margin-top: 0.75rem;
+    color: var(--text-muted);
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.85rem;
+  }
+</style>

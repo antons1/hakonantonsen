@@ -1,0 +1,25 @@
+---
+import Base from "../../layouts/Base.astro";
+import PostList from "../../components/PostList.astro";
+import { getPosts, SUBSTACK_URL } from "../../lib/substack";
+
+const posts = await getPosts();
+---
+
+<Base title="Writing" description="Writing by Håkon Antonsen.">
+  <h1>Writing</h1>
+  <p class="lede">
+    I write on <a href={SUBSTACK_URL}>Substack</a> — you can
+    <a href={`${SUBSTACK_URL}/subscribe`}>subscribe</a> to get new posts by
+    email. Everything published there is listed here.
+  </p>
+
+  <PostList posts={posts} showExcerpts />
+</Base>
+
+<style>
+  .lede {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+</style>

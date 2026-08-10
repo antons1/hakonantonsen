@@ -1,0 +1,58 @@
+---
+import { formatDate, type Post } from "../lib/substack";
+
+interface Props {
+  posts: Post[];
+  showExcerpts?: boolean;
+}
+
+const { posts, showExcerpts = false } = Astro.props;
+---
+
+<ul class="posts">
+  {posts.map((post) => (
+    <li>
+      <a href={post.url}>{post.title}</a>
+      <time datetime={post.date.toISOString()}>{formatDate(post.date)}</time>
+      {showExcerpts && post.excerpt && <p>{post.excerpt}</p>}
+    </li>
+  ))}
+</ul>
+
+<style>
+  .posts {
+    list-style: none;
+    padding: 0;
+  }
+
+  .posts li {
+    padding: 0.8rem 0;
+  }
+
+  .posts li + li {
+    border-top: 1px solid var(--border);
+  }
+
+  .posts a {
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .posts a:hover {
+    text-decoration: underline;
+  }
+
+  time {
+    display: block;
+    color: var(--text-muted);
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.8rem;
+    margin-top: 0.15rem;
+  }
+
+  .posts p {
+    margin-top: 0.4rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+</style>

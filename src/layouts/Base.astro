@@ -1,0 +1,174 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = "Håkon Antonsen — writing, photography and other things I make." } = Astro.props;
+const pageTitle = title ? `${title} · Håkon Antonsen` : "Håkon Antonsen";
+
+const nav = [
+  { href: "/", label: "Home" },
+  { href: "/writing/", label: "Writing" },
+  { href: "/photos/", label: "Photos" },
+  { href: "/about/", label: "About" },
+];
+
+const current = Astro.url.pathname;
+const isCurrent = (href: string) =>
+  href === "/" ? current === "/" : current.startsWith(href);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <header>
+      <a class="name" href="/">Håkon Antonsen</a>
+      <nav>
+        {nav.map(({ href, label }) => (
+          <a href={href} aria-current={isCurrent(href) ? "page" : undefined}>{label}</a>
+        ))}
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <p>© {new Date().getFullYear()} Håkon Antonsen</p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #faf9f7;
+    --text: #26241f;
+    --text-muted: #6f6a60;
+    --accent: #9a5b2d;
+    --border: #e4e0d8;
+    --tile: #edeae4;
+    --max-width: 42rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1b1a18;
+      --text: #eae7e1;
+      --text-muted: #9d978c;
+      --accent: #d29159;
+      --border: #35322d;
+      --tile: #26241f;
+    }
+  }
+
+  * {
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    color-scheme: light dark;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: ui-serif, "Iowan Old Style", Georgia, Cambria, "Times New Roman", serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0 1.25rem;
+  }
+
+  header,
+  main,
+  footer {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    padding: 2.25rem 0 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  header .name {
+    font-weight: 600;
+    font-size: 1.15rem;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  header nav {
+    display: flex;
+    gap: 1.1rem;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.9rem;
+  }
+
+  header nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  header nav a:hover {
+    color: var(--accent);
+  }
+
+  header nav a[aria-current="page"] {
+    color: var(--text);
+    border-bottom: 2px solid var(--accent);
+  }
+
+  main {
+    flex: 1;
+    padding: 2.5rem 0 3rem;
+  }
+
+  footer {
+    padding: 1.5rem 0 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.85rem;
+  }
+
+  h1 {
+    font-size: 1.9rem;
+    line-height: 1.25;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 2.25rem 0 0.9rem;
+  }
+
+  a {
+    color: var(--accent);
+  }
+
+  p + p {
+    margin-top: 1rem;
+  }
+</style>
