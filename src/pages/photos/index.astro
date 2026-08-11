@@ -1,11 +1,51 @@
 ---
 import Base from "../../layouts/Base.astro";
+import { photos } from "../../lib/photos";
 ---
 
 <Base title="Photos" description="Photography by Håkon Antonsen.">
   <h1>Photos</h1>
-  <p>
-    A portfolio of my photography is on its way. In the meantime, if you're
-    family or a friend looking for a shared album, ask me for the link.
+  <div class="grid">
+    {photos.map((photo) => (
+      <img
+        src={photo.src}
+        width={photo.width}
+        height={photo.height}
+        alt={photo.description ?? ""}
+        loading="lazy"
+        decoding="async"
+      />
+    ))}
+  </div>
+  <p class="hint">
+    Family or friend looking for a shared album? Ask me for the link.
   </p>
 </Base>
+
+<style>
+  .grid {
+    columns: 2;
+    column-gap: 0.75rem;
+  }
+
+  .grid img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+  }
+
+  @media (max-width: 600px) {
+    .grid {
+      columns: 1;
+    }
+  }
+
+  .hint {
+    margin-top: 1.5rem;
+    color: var(--text-muted);
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.85rem;
+  }
+</style>

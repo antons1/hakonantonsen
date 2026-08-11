@@ -2,11 +2,10 @@
 import Base from "../layouts/Base.astro";
 import PostList from "../components/PostList.astro";
 import { getPosts } from "../lib/substack";
+import { photos } from "../lib/photos";
 
 const posts = (await getPosts()).slice(0, 3);
-
-// Placeholder tiles until the photo portfolio is wired up to Immich.
-const tiles = [1, 2, 3];
+const highlights = photos.slice(0, 3);
 ---
 
 <Base>
@@ -18,12 +17,18 @@ const tiles = [1, 2, 3];
 
   <section>
     <h2><a href="/photos/">Photography</a></h2>
-    <div class="tiles">
-      {tiles.map(() => (
-        <div class="tile" aria-hidden="true"></div>
+    <a class="tiles" href="/photos/">
+      {highlights.map((photo) => (
+        <img
+          class="tile"
+          src={photo.src}
+          alt={photo.description ?? ""}
+          loading="lazy"
+          decoding="async"
+        />
       ))}
-    </div>
-    <p class="hint">Portfolio coming soon — highlights will appear here.</p>
+    </a>
+    <p class="hint"><a href="/photos/">All photos →</a></p>
   </section>
 
   <section>
@@ -56,6 +61,8 @@ const tiles = [1, 2, 3];
 
   .tile {
     aspect-ratio: 3 / 2;
+    width: 100%;
+    object-fit: cover;
     background: var(--tile);
     border-radius: 4px;
   }
